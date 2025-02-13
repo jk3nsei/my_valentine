@@ -8,7 +8,13 @@ const App = () => {
   const btnWrapperRef = useRef();
   const noBtnRef = useRef();
 
-  const toggleModal = () => setCanDisplayModal(true); // Open modal
+  const toggleModal = () => setCanDisplayModal(true);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src =
+      "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHNxbHQwaXF5NmYycDBjdWpqbmYwMjd0czRzMHdvZno4N2tpYTl4cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IzXiddo2twMmdmU8Lv/giphy.gif";
+  }, []);
 
   useEffect(() => {
     if (btnWrapperRef.current && noBtnRef.current) {
@@ -25,12 +31,12 @@ const App = () => {
         noBtnRef.current.style.top = `${top}px`;
       };
 
-      const currentNoBtn = noBtnRef.current; // Store the ref value in a variable
+      const currentNoBtn = noBtnRef.current;
 
       currentNoBtn.addEventListener("mouseover", handleMouseOver);
 
       return () => {
-        currentNoBtn.removeEventListener("mouseover", handleMouseOver); // Use the stored variable
+        currentNoBtn.removeEventListener("mouseover", handleMouseOver);
       };
     }
   }, []);
