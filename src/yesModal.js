@@ -22,14 +22,14 @@ const YesModal = () => {
               <h1>Congratulations!!!</h1>
             </div>
             <div className="textContainer">
-              <span>You are offically have a valentine!</span>
+              <span className="mainMsg">You are offically a valentine!</span>
               <img
                 src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHNxbHQwaXF5NmYycDBjdWpqbmYwMjd0czRzMHdvZno4N2tpYTl4cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IzXiddo2twMmdmU8Lv/giphy.gif"
                 alt="bears hugging"
               />
             </div>
           </div>
-          <div style={{ textAlign: "left", fontSize: "12px" }}>
+          <div className="psMsg">
             PS. I would like to take you to dinner at like 8:30pm?
           </div>
         </div>

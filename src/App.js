@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import YesModal from "./yesModal";
+import RoseIcon from "./Assets/roseIcon.png";
 
 const App = () => {
   const [canDisplayModal, setCanDisplayModal] = useState(false);
@@ -10,8 +11,6 @@ const App = () => {
 
   useEffect(() => {
     if (btnWrapperRef.current && noBtnRef.current) {
-      console.log("hello world");
-
       const wrapper = btnWrapperRef.current.getBoundingClientRect();
       const btn = noBtnRef.current.getBoundingClientRect();
 
@@ -32,6 +31,17 @@ const App = () => {
       <div className="container">
         <div className="mainHeaderContainer">
           <h1>Will You Be My Valentine?</h1>
+          <img
+            src={RoseIcon}
+            alt="rose"
+            className="imgStyle"
+            style={{
+              height: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          />
         </div>
         <div className="svgContainer">
           <img
