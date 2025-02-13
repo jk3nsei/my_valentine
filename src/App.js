@@ -31,17 +31,7 @@ const App = () => {
       <div className="container">
         <div className="mainHeaderContainer">
           <h1>Will You Be My Valentine?</h1>
-          <img
-            src={RoseIcon}
-            alt="rose"
-            className="imgStyle"
-            style={{
-              height: "100%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          />
+          <img src={RoseIcon} alt="rose" className="imgStyle" />
         </div>
         <div className="svgContainer">
           <img
