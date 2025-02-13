@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from "react";
-import "./App.css";
+import { useState, useRef, useEffect } from "react";
 import YesModal from "./yesModal";
 import RoseIcon from "./Assets/roseIcon.png";
 
@@ -9,12 +8,14 @@ const App = () => {
   const btnWrapperRef = useRef();
   const noBtnRef = useRef();
 
+  const toggleModal = () => setCanDisplayModal(true); // Open modal
+
   useEffect(() => {
     if (btnWrapperRef.current && noBtnRef.current) {
       const wrapper = btnWrapperRef.current.getBoundingClientRect();
       const btn = noBtnRef.current.getBoundingClientRect();
 
-      noBtnRef.current.addEventListener("mouseover", () => {
+      const handleMouseOver = () => {
         const left =
           Math.floor(Math.random() * (wrapper.width - btn.width)) + 1;
         const top =
@@ -22,7 +23,15 @@ const App = () => {
 
         noBtnRef.current.style.left = `${left}px`;
         noBtnRef.current.style.top = `${top}px`;
-      });
+      };
+
+      const currentNoBtn = noBtnRef.current; // Store the ref value in a variable
+
+      currentNoBtn.addEventListener("mouseover", handleMouseOver);
+
+      return () => {
+        currentNoBtn.removeEventListener("mouseover", handleMouseOver); // Use the stored variable
+      };
     }
   }, []);
 
@@ -40,21 +49,17 @@ const App = () => {
           />
         </div>
         <div className="btnContainer" id="btnContainer" ref={btnWrapperRef}>
-          <div
-            className="btn yesBtn"
-            id="yesBtn"
-            onClick={() => {
-              setCanDisplayModal(!canDisplayModal);
-            }}
-          >
+          <button className="btn yesBtn" id="yesBtn" onClick={toggleModal}>
             YES
-          </div>
-          <div className="btn noBtn" id="btn" ref={noBtnRef}>
+          </button>
+          <button className="btn noBtn" id="btn" ref={noBtnRef}>
             NO
-          </div>
+          </button>
         </div>
       </div>
-      {canDisplayModal && <YesModal />}
+      {canDisplayModal && (
+        <YesModal onClose={() => setCanDisplayModal(false)} />
+      )}
     </div>
   );
 };
