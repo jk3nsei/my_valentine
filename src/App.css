@@ -43,10 +43,15 @@
   align-items: center;
 }
 
-.mainHeaderContainer h1,
 .headingsContainer h1 {
   @media screen and (max-width: 430px) {
     font-size: 1.5rem;
+  }
+}
+
+.landingHeader h1 {
+  @media screen and (max-width: 430px) {
+    font-size: 1rem;
   }
 }
 

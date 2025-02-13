@@ -38,7 +38,7 @@ const App = () => {
   return (
     <div className="App">
       <div className="container">
-        <div className="mainHeaderContainer">
+        <div className="mainHeaderContainer landingHeader">
           <h1>Will You Be My Valentine?</h1>
           <img src={RoseIcon} alt="rose" className="imgStyle" />
         </div>
